@@ -29,7 +29,18 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function provider()
+    {
+        return $this->hasOne(Provider::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
